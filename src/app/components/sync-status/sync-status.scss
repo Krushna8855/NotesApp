@@ -1,0 +1,29 @@
+.sync-status {
+  text-align: right;
+  font-size: 0.95rem;
+
+  span {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    background-color: #e6f4ea;
+    color: #2e7d32;
+    transition: background-color 0.3s, color 0.3s;
+
+    &.syncing {
+      background-color: #fff3cd;
+      color: #856404;
+      animation: fadeBlink 1.2s infinite;
+    }
+  }
+}
+
+@keyframes fadeBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}

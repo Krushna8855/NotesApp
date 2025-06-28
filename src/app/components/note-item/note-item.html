@@ -1,0 +1,13 @@
+<div class="note-card">
+  <div class="note-header">
+    <h3>{{ note.title }}</h3>
+    <small>Updated at : {{ updatedDate | date: 'short' }}</small>
+  </div>
+
+  <p class="note-content">{{ note.content }}</p>
+
+  <div class="note-actions">
+    <button class="btn edit" (click)="edit.emit(note)">Edit</button>
+    <button class="btn delete" (click)="delete.emit(note.id)">Delete</button>
+  </div>
+</div>

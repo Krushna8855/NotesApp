@@ -1,0 +1,14 @@
+<div *ngIf="notes.length > 0; else empty" class="notes-container">
+  <app-note-item
+    *ngFor="let note of notes"
+    [note]="note"
+    (edit)="edit.emit($event)"
+    (delete)="delete.emit($event)"
+  ></app-note-item>
+</div>
+
+<ng-template #empty>
+  <div class="empty-state">
+    <p>📝 No notes yet. Start by adding one!</p>
+  </div>
+</ng-template>

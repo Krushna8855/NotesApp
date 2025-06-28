@@ -1,0 +1,37 @@
+<div class="container">
+  <app-sync-status [syncing]="store.isSyncing()"></app-sync-status>
+
+  <!-- 🛑 Conflict Notices -->
+  <div class="conflicts" *ngIf="store.conflictNotes().length">
+    <h3>🛑 Conflicts Detected</h3>
+    <div *ngFor="let conflict of store.conflictNotes()" class="conflict-item">
+      <p><strong>{{ conflict.title }}</strong> has a newer version on server.</p>
+      <button (click)="acceptRemote(conflict)">Use Server Version</button>
+      <button (click)="keepLocal(conflict.id)">Keep Local Version</button>
+    </div>
+  </div>
+
+  <button class="new-note-btn" (click)="startNewNote()">+ New Note</button>
+
+  <div class="actions">
+    <button (click)="undo()">Undo</button>
+    <button (click)="redo()">Redo</button>
+  </div>
+
+  <!-- Modal Editor -->
+  <div class="modal-backdrop" *ngIf="editingNote()">
+    <div class="modal">
+      <app-note-editor
+        [note]="editingNote()!"
+        (save)="saveNote($event)"
+        (cancel)="cancelEdit()"
+      ></app-note-editor>
+    </div>
+  </div>
+
+  <app-note-list
+    [notes]="store.allNotes()"
+    (edit)="editNote($event)"
+    (delete)="deleteNote($event)"
+  ></app-note-list>
+</div>

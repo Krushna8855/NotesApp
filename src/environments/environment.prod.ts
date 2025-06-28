@@ -5,13 +5,12 @@
 export const environment = {
   production: true,
   firebaseConfig: {
-  apiKey: "AIzaSyDmjbCIEhznuL9kGWoE48GP2yyacYgqVYE",
-  authDomain: "farmconnect-7a50e.firebaseapp.com",
-  projectId: "farmconnect-7a50e",
-  storageBucket: "farmconnect-7a50e.firebasestorage.app",
-  messagingSenderId: "318034306308",
-  appId: "1:318034306308:web:567e7d1648118387a99c51",
-  measurementId: "G-66HRVYYEE6"
+ apiKey: 'YOUR_KEY',
+    authDomain: 'YOUR_DOMAIN',
+    projectId: 'YOUR_PROJECT_ID',
+    storageBucket: 'YOUR_BUCKET',
+    messagingSenderId: 'YOUR_SENDER_ID',
+    appId: 'YOUR_APP_ID',
 }
 };
 
